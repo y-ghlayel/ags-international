@@ -9,3 +9,28 @@
 	font-style: italic;
   }
   
+  .sidePanel {
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -300px; /* Initially hide the panel */
+  background-color: #f0f0f0;
+  transition: left 0.3s ease;
+}
+
+.sidePanel.open {
+  left: 0; /* Slide the panel in when open */
+}
+
+.toggleButton {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.content {
+  padding: 20px;
+}

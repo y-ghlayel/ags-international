@@ -1,13 +1,18 @@
 import "./App.css";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import Employees from "./Employees";
 
-function App() {
+export default function App() {
   return (
-    <div className="entriesEmployees">
-      <span className="redText">Entries</span>
-      <br />
-      <span className="redText">Employees</span>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+		<Route path="employees" element={<Employees />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
