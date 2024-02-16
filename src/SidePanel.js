@@ -29,7 +29,7 @@ export default function PermanentDrawerLeft() {
       <Drawer
         sx={{
           width: 124,
-          height: 1080,
+          height: 800,
           flexShrink: 0,
           "& .MuiDrawer-paper": {
             width: 124,
@@ -51,7 +51,9 @@ export default function PermanentDrawerLeft() {
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton>
+              <ListItemButton
+                sx={{ display: "flex", justifyContent: "center" }}
+              >
                 <ListItemIcon>
                   <Link to="/">
                     <img
