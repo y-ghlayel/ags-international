@@ -1,23 +1,19 @@
 import * as React from "react";
 
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
-import SearchIcon from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 import Grid from "@mui/material/Grid";
-import AddIcon from "@mui/icons-material/Add";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import NativeSelect from "@mui/material/NativeSelect";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
 
-export default function EmployeeFormDialog({ openDialog }) {
+export default function EmployeeFormDialog({ onSubmit }) {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -26,6 +22,20 @@ export default function EmployeeFormDialog({ openDialog }) {
     event.preventDefault();
   };
   const countries = ["USA", "Canada", "UK", "Australia", "Germany", "France"];
+
+  const [userData, setUserData] = React.useState({
+    username: "",
+    role: "",
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      [name]: value,
+    }));
+	onSubmit(userData)
+  };
 
   return (
     <>
@@ -39,6 +49,9 @@ export default function EmployeeFormDialog({ openDialog }) {
             placeholder="Enter User Name"
             fullWidth
             sx={{ bgcolor: "#f8f9fa" }}
+            value={userData?.username}
+            onChange={handleInputChange}
+			name="username"
           />
         </Grid>
         <Grid item xs={6}>
@@ -48,17 +61,20 @@ export default function EmployeeFormDialog({ openDialog }) {
             placeholder="Enter Phone Number"
             fullWidth
             sx={{ bgcolor: "#f8f9fa" }}
+            onChange={handleInputChange}
           />
         </Grid>
 
         {/* Second Row */}
         <Grid item xs={6}>
-          <FormControl fullWidth sx={{ bgcolor: "#f8f9fa" }}>
+          <FormControl fullWidth sx={{ bgcolor: "#f8f9fa" }} >
             <InputLabel id="demo-simple-select-label">Role</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
+			  name="role"
               label="Role Designation Department"
+			  onChange={handleInputChange}
             >
               <MenuItem value={10}>Role</MenuItem>
               <MenuItem value={20}>Designation</MenuItem>

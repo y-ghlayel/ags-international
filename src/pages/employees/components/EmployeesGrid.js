@@ -3,8 +3,9 @@ import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import React, { useState, useEffect } from "react";
 
-export default function employeesGrid({onEditClick }) {
+export default function EmployeesGrid({ onEditClick, newRow }) {
   const renderActionsCell = (params) => {
     return (
       <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -27,6 +28,15 @@ export default function employeesGrid({onEditClick }) {
       </Box>
     );
   };
+  useEffect(() => {
+    if (newRow) {
+      const randomId = Math.floor(Math.random() * (100 - 9 + 1)) + 9;
+      setRows((prevRows) => [
+        ...prevRows,
+	{ id: `'${randomId}'`, usename: newRow[0]?.username, role: newRow.role },
+      ]);
+    }
+  }, [newRow]);
   const columns = [
     {
       field: "username",
@@ -48,7 +58,7 @@ export default function employeesGrid({onEditClick }) {
     },
   ];
 
-  const rows = [
+  const [rows, setRows] = useState([
     {
       id: "1",
       username: "Employee Full Name",
@@ -94,7 +104,7 @@ export default function employeesGrid({onEditClick }) {
       username: "Employee Full Name",
       role: "Designation/Role/",
     },
-  ];
+  ]);
   return (
     <>
       <DataGrid

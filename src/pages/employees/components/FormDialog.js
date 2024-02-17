@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
+import * as React from "react";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -21,7 +22,17 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     borderRadius: "22px",
   },
 }));
-export default function FormDialog({ editingAccId, openDialog, handleClose }) {
+export default function FormDialog({ editingAccId, openDialog, handleClose ,handleSubmitData }) {
+	const [data, setData] = React.useState();
+
+	const handleSubmit = (userData) => {
+		// Here you can perform actions with the collected data
+		setData(userData)
+	  };
+	const handleAdd = () => {
+		handleSubmitData(data)
+	  };
+
   return (
     <>
       {" "}
@@ -65,15 +76,16 @@ export default function FormDialog({ editingAccId, openDialog, handleClose }) {
           <CloseIcon />
         </IconButton>
         <DialogContent dividers>
-          <EmployeeFormDialog />
+          <EmployeeFormDialog   onSubmit={handleSubmit} />
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
             {editingAccId ? "Back" : "Cancel"}
           </Button>
+		  {/* submit button */}
           <Button
             autoFocus
-            onClick={handleClose}
+            onClick={handleAdd}
             sx={{ bgcolor: "#3e4b63", color: "#ffffff" }}
             variant="contained"
           >

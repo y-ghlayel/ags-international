@@ -10,7 +10,7 @@ import FormDialog from "./components/FormDialog";
 function Employees() {
   const [openDialog, setOpenDialog] = useState(false);
   const [editingAccId, setEditingAccId] = useState("");
-
+  const [newRow, setnewRow] = React.useState([]);
   const handleClickOpen = () => {
     setOpenDialog(true);
   };
@@ -21,6 +21,11 @@ function Employees() {
   const handleClose = () => {
 	setOpenDialog(false);
 	setEditingAccId("");
+  };
+
+  const handleSubmitData = (userData) => {
+    setnewRow([...newRow, userData]); 
+    handleClose(); 
   };
   return (
     <div
@@ -33,7 +38,7 @@ function Employees() {
     >
       {/* form dialog */}
       <div>
-        <FormDialog editingAccId={editingAccId} openDialog={openDialog}  handleClose={handleClose}/>
+        <FormDialog editingAccId={editingAccId} openDialog={openDialog}  handleClose={handleClose}  handleSubmitData={handleSubmitData}/>
       </div>
 
       <div
@@ -71,7 +76,7 @@ function Employees() {
           }}
         >
           <Box sx={{ height: 650, width: "100%" }}>
-            <EmployeesGrid onEditClick={handleClickEdit} />
+            <EmployeesGrid onEditClick={handleClickEdit}   newRow={newRow}/>
           </Box>
         </CardContent>
       </div>
