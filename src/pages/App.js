@@ -2,8 +2,8 @@ import "../style/App.css";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./Home";
-import Employees from "./Employees";
+import Home from "./home/Home";
+import Employees from "./employees/Employees";
 
 export default function App() {
   return (
