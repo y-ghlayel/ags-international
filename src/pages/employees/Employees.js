@@ -1,3 +1,4 @@
+// Importing necessary styles and libraries
 import "../../style/App.css";
 import * as React from "react";
 import CardContent from "@mui/material/CardContent";
@@ -8,12 +9,15 @@ import { useState } from "react";
 import FormDialog from "./components/FormDialog";
 
 function Employees() {
+	  // State variables initialization
+
   const [openDialog, setOpenDialog] = useState(false);
   const [editingAccId, setEditingAccId] = useState("");
   const [newRow, setnewRow] = React.useState([]);
   const handleClickOpen = () => {
     setOpenDialog(true);
   };
+    // Function to open the dialog for editing an employee
   const handleClickEdit = (rowData) => {
     setOpenDialog(true);
     setEditingAccId(rowData);
@@ -23,6 +27,7 @@ function Employees() {
 	setEditingAccId("");
   };
 
+    // Function to handle submitting new employee data
   const handleSubmitData = (userData) => {
     setnewRow([...newRow, userData]); 
     handleClose(); 

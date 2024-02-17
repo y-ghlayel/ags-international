@@ -33,7 +33,11 @@ export default function EmployeesGrid({ onEditClick, newRow }) {
       const randomId = Math.floor(Math.random() * (100 - 9 + 1)) + 9;
       setRows((prevRows) => [
         ...prevRows,
-	{ id: `'${randomId}'`, usename: newRow[0]?.username, role: newRow.role },
+        {
+          id: `${randomId}`,
+          username: newRow[0]?.username,
+          role: newRow[0]?.role,
+        },
       ]);
     }
   }, [newRow]);

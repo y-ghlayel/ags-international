@@ -3,7 +3,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import EmployeeFormDialog from  "./EmployeeFormDialog";   
+import EmployeeFormDialog from "./EmployeeFormDialog";
 import Button from "@mui/material/Button";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import { styled } from "@mui/material/styles";
@@ -22,16 +22,21 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     borderRadius: "22px",
   },
 }));
-export default function FormDialog({ editingAccId, openDialog, handleClose ,handleSubmitData }) {
-	const [data, setData] = React.useState();
+export default function FormDialog({
+  editingAccId,
+  openDialog,
+  handleClose,
+  handleSubmitData,
+}) {
+  const [data, setData] = React.useState();
 
-	const handleSubmit = (userData) => {
-		// Here you can perform actions with the collected data
-		setData(userData)
-	  };
-	const handleAdd = () => {
-		handleSubmitData(data)
-	  };
+  const handleSubmit = (userData) => {
+    // Here you can perform actions with the collected data
+    setData(userData);
+  };
+  const handleAdd = () => {
+    handleSubmitData(data);
+  };
 
   return (
     <>
@@ -76,13 +81,13 @@ export default function FormDialog({ editingAccId, openDialog, handleClose ,hand
           <CloseIcon />
         </IconButton>
         <DialogContent dividers>
-          <EmployeeFormDialog   onSubmit={handleSubmit} />
+          <EmployeeFormDialog onSubmit={handleSubmit} />
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
             {editingAccId ? "Back" : "Cancel"}
           </Button>
-		  {/* submit button */}
+          {/* submit button */}
           <Button
             autoFocus
             onClick={handleAdd}
