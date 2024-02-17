@@ -12,7 +12,6 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import NativeSelect from "@mui/material/NativeSelect";
-import { useState } from "react";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -31,14 +30,15 @@ export default function EmployeeFormDialog({ openDialog }) {
   return (
     <>
       {" "}
-      <Grid container spacing={2}>
+      <Grid container spacing={4}>
         {/* First Row */}
-        <Grid item xs={6}>
+        <Grid item xs={6} spacing={22}>
           <TextField
             id="outlined-textarea"
             label="Username"
             placeholder="Enter User Name"
             fullWidth
+            sx={{ bgcolor: "#f8f9fa" }}
           />
         </Grid>
         <Grid item xs={6}>
@@ -47,12 +47,13 @@ export default function EmployeeFormDialog({ openDialog }) {
             label="Phone Number"
             placeholder="Enter Phone Number"
             fullWidth
+            sx={{ bgcolor: "#f8f9fa" }}
           />
         </Grid>
 
         {/* Second Row */}
         <Grid item xs={6}>
-          <FormControl fullWidth>
+          <FormControl fullWidth sx={{ bgcolor: "#f8f9fa" }}>
             <InputLabel id="demo-simple-select-label">Role</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -70,7 +71,7 @@ export default function EmployeeFormDialog({ openDialog }) {
         {/* Third Row */}
         <Grid item xs={6}>
           <FormControl
-            sx={{ m: 0, width: "32ch" }}
+            sx={{ m: 0, width: "41ch", bgcolor: "#f8f9fa" }}
             variant="outlined"
             fullWidth
           >
@@ -98,7 +99,7 @@ export default function EmployeeFormDialog({ openDialog }) {
         </Grid>
         <Grid item xs={6}>
           <FormControl
-            sx={{ m: 0, width: "32ch" }}
+            sx={{ m: 0, width: "41ch", bgcolor: "#f8f9fa" }}
             variant="outlined"
             fullWidth
           >
@@ -132,6 +133,7 @@ export default function EmployeeFormDialog({ openDialog }) {
             label="Whole Sale Commission rate"
             placeholder="Enter gross weight"
             fullWidth
+            sx={{ bgcolor: "#f8f9fa" }}
           />
         </Grid>
         <Grid item xs={6}>
@@ -140,6 +142,7 @@ export default function EmployeeFormDialog({ openDialog }) {
             label="Retail Commission rate"
             placeholder="Enter gross weight"
             fullWidth
+            sx={{ bgcolor: "#f8f9fa" }}
           />
         </Grid>
 
@@ -153,7 +156,7 @@ export default function EmployeeFormDialog({ openDialog }) {
 
         {/* Sixth Row */}
         <Grid item xs={6}>
-          <FormControl fullWidth>
+          <FormControl fullWidth sx={{ bgcolor: "#f8f9fa" }}>
             <InputLabel id="demo-simple-select-label">
               {" "}
               Product Category
@@ -170,25 +173,25 @@ export default function EmployeeFormDialog({ openDialog }) {
           </FormControl>
         </Grid>
         <Grid item xs={6}>
-		<FormControl fullWidth>
-      <InputLabel id="country-select-label">Product Country</InputLabel>
-      <Select
-        labelId="country-select-label"
-        id="country-select"
-        label="Product Country"
-      >
-        {countries.map((country, index) => (
-          <MenuItem key={index} value={country}>
-            {country}
-          </MenuItem>
-        ))}
-      </Select>
-    </FormControl>
+          <FormControl fullWidth sx={{ bgcolor: "#f8f9fa" }}>
+            <InputLabel id="country-select-label">Product Country</InputLabel>
+            <Select
+              labelId="country-select-label"
+              id="country-select"
+              label="Product Country"
+            >
+              {countries.map((country, index) => (
+                <MenuItem key={index} value={country}>
+                  {country}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Grid>
 
         {/* Seventh Row */}
         <Grid item xs={6}>
-		<FormControl fullWidth>
+          <FormControl fullWidth sx={{ bgcolor: "#f8f9fa" }}>
             <InputLabel id="demo-simple-select-label">
               {" "}
               Product Company
@@ -205,7 +208,7 @@ export default function EmployeeFormDialog({ openDialog }) {
           </FormControl>
         </Grid>
         <Grid item xs={6}>
-		<FormControl fullWidth>
+          <FormControl fullWidth sx={{ bgcolor: "#f8f9fa" }}>
             <InputLabel id="demo-simple-select-label">
               {" "}
               Product Brand
