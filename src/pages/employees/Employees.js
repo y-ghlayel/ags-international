@@ -7,9 +7,19 @@ import EmployeesGrid from "./components/EmployeesGrid";
 import FiltersForms from "./components/FiltersForm";
 import { useState } from "react";
 import FormDialog from "./components/FormDialog";
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import Slide from '@mui/material/Slide';
 
+
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+	return <Slide direction="up" ref={ref} {...props} />;
+  });
 function Employees() {
 	  // State variables initialization
+	  const [open, setOpen] = React.useState(false);
 
   const [openDialog, setOpenDialog] = useState(false);
   const [editingAccId, setEditingAccId] = useState("");
@@ -31,6 +41,10 @@ function Employees() {
   const handleSubmitData = (userData) => {
     setnewRow([...newRow, userData]); 
     handleClose(); 
+	setOpen(true); // Show the success alert
+    setTimeout(() => {
+		setOpen(false); // Hide the success alert after 5 seconds
+    }, 2500);
   };
   return (
     <div
@@ -41,6 +55,20 @@ function Employees() {
         backgroundColor: "#f8f9fa",
       }}
     >
+		   <Dialog
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+		  User Employeename added successfully
+          </DialogContentText>
+        </DialogContent>
+
+      </Dialog>
       {/* form dialog */}
       <div>
         <FormDialog editingAccId={editingAccId} openDialog={openDialog}  handleClose={handleClose}  handleSubmitData={handleSubmitData}/>
