@@ -1,6 +1,7 @@
-import "./App.css";
+import "../style/App.css";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Home from "./Home";
 import Employees from "./Employees";
 

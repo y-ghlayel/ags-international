@@ -1,6 +1,6 @@
-import "./App.css";
-import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button';
+import "../style/App.css";
+import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 function Home() {
   return (
@@ -8,9 +8,10 @@ function Home() {
       <span className="redText">Entries</span>
       <br />
       <span className="redText">Employees</span>
-	  <br />
+      <br />
       <Link to="/employees">
-	  <Button variant="contained">Employees</Button>      </Link>
+        <Button variant="contained">Employees</Button>{" "}
+      </Link>
     </div>
   );
 }

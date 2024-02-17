@@ -1,5 +1,5 @@
-import "./App.css";
-import SidePanel from "./SidePanel";
+import '../style/App.css';
+import SidePanel from "../layout/components/SidePanel";
 import * as React from "react";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
