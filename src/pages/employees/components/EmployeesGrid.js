@@ -31,19 +31,19 @@ export default function employeesGrid({onEditClick }) {
     {
       field: "username",
       headerName: "Employee User Name",
-      width: 800,
+      flex: 1,
       editable: true,
     },
     {
       field: "role",
       headerName: "Role",
-      width: 700,
+      flex: 1,
       editable: true,
     },
     {
       field: "actions",
       headerName: "Actions",
-      width: 200,
+      flex: 0.5,
       renderCell: renderActionsCell,
     },
   ];
