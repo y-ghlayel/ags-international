@@ -1,0 +1,11 @@
+@media screen and (max-width: 600px) {
+	.MuiDataGrid-root .MuiDataGrid-colCell {
+	  width: 50% !important; /* Two columns in a row */
+	}
+  }
+  
+  @media screen and (max-width: 400px) {
+	.MuiDataGrid-root .MuiDataGrid-colCell {
+	  width: 100% !important; /* Single column in a row */
+	}
+  }

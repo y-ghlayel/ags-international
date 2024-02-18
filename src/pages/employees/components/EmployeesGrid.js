@@ -12,15 +12,14 @@ export default function EmployeesGrid({ onEditClick, newRow }) {
         <Button
           variant="text"
           color="inherit"
-          sx={{ width: "25px", margin: "0 10px", backgroundColor: "#f8f9fa" }}
+          sx={{ width: "50%", maxWidth: "50px", margin: "0 5px", backgroundColor: "#f0f0f0" ,  color: "gray",}}
           onClick={() => onEditClick(params.row)}
           startIcon={<ModeEditOutlinedIcon sx={{ color: "gray" }} />}
         ></Button>
         <Button
           variant="text"
           color="inherit"
-          sx={{ width: "100px", margin: "0 10px", backgroundColor: "#f8f9fa" }}
-          // onClick={() => handleDelete(params.row)}
+          sx={{ width: "50%", maxWidth: "100px", margin: "0 5px", backgroundColor: "#f0f0f0" , color: "gray",}}
           endIcon={<LockOutlinedIcon sx={{ color: "gray" }} />}
         >
           Blocked
@@ -28,19 +27,7 @@ export default function EmployeesGrid({ onEditClick, newRow }) {
       </Box>
     );
   };
-  useEffect(() => {
-    if (newRow) {
-      const randomId = Math.floor(Math.random() * (100 - 9 + 1)) + 9;
-      setRows((prevRows) => [
-        ...prevRows,
-        {
-          id: `${randomId}`,
-          username: newRow[0]?.username,
-          role: newRow[0]?.role,
-        },
-      ]);
-    }
-  }, [newRow]);
+
   const columns = [
     {
       field: "username",
@@ -61,6 +48,21 @@ export default function EmployeesGrid({ onEditClick, newRow }) {
       renderCell: renderActionsCell,
     },
   ];
+
+  // Assuming you may later add functionality to add new rows, uncommenting this code.
+  // useEffect(() => {
+  //   if (newRow) {
+  //     const randomId = Math.floor(Math.random() * (100 - 9 + 1)) + 9;
+  //     setRows((prevRows) => [
+  //       ...prevRows,
+  //       {
+  //         id: `${randomId}`,
+  //         username: newRow[0]?.username,
+  //         role: newRow[0]?.role,
+  //       },
+  //     ]);
+  //   }
+  // }, [newRow]);
 
   const [rows, setRows] = useState([
     {
@@ -110,20 +112,21 @@ export default function EmployeesGrid({ onEditClick, newRow }) {
     },
   ]);
   return (
-    <>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pactionsSize: 5,
-            },
-          },
-        }}
-        pactionsSizeOptions={[5]}
-        disableRowSelectionOnClick
-      />
+	<>
+    <DataGrid
+      rows={rows}
+      columns={columns}
+      autoHeight 
+	  initialState={{
+		pagination: {
+		  paginationModel: {
+			pactionsSize: 5,
+		  },
+		},
+	  }}
+	  pactionsSizeOptions={[5]}
+	  disableRowSelectionOnClick
+    />
     </>
   );
 }

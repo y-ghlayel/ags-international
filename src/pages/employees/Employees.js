@@ -81,30 +81,37 @@ function Employees() {
         {/* Filter Card */}
         <CardContent
           sx={{
-            width: "97%",
-            height: "400",
+            width: "99%",
+            height: "auto",
+            maxHeight: "1080px",
             backgroundColor: "#FFFFFF",
             marginTop: "10px",
-            marginBottom: "15px",
+            marginBottom: "5px",
             borderRadius: "15px",
+            padding: "15px",
+            boxSizing: "border-box",
+            margin: "0 auto",
+            overflowY: "auto",
           }}
         >
-          {" "}
           <FiltersForms openDialog={handleClickOpen} />
         </CardContent>
 
         {/* Grid Card */}
         <CardContent
           sx={{
-            width: "97%",
-            height: "800px",
+            width: "99%", 
+            height: "auto",
             backgroundColor: "#FFFFFF",
             marginTop: "15px",
             marginBottom: "15px",
             borderRadius: "15px",
+            padding: "15px", 
+            boxSizing: "border-box", 
+            margin: "0 auto", 
           }}
         >
-          <Box sx={{ height: 650, width: "100%" }}>
+          <Box sx={{ height: "100%", width: "100%" }}>
             <EmployeesGrid onEditClick={handleClickEdit} newRow={newRow} />
           </Box>
         </CardContent>
