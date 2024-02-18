@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import EmployeesGrid from "./components/EmployeesGrid";
 import FiltersForms from "./components/FiltersForm";
 import { useState } from "react";
-import AgsDialog from "./components/AgsDialog";
+import AgsDialog from   "../../components/AgsDialog"; 
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
