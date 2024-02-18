@@ -17,13 +17,27 @@ export default function PermanentDrawerLeft() {
     <Box sx={{ display: "flex" }}>
       <Drawer
         sx={{
-          width: 124,
-          height: 800,
+          width: "7vw",
+          height: "100%",
           flexShrink: 0,
           "& .MuiDrawer-paper": {
-            width: 124,
-            height: 1080,
+            width: "7vw", 
+            height: "100%",
             boxSizing: "border-box",
+          },
+          "@media (max-width: 768px)": {
+            // Adjustments for smaller screens
+            width: "7vw",
+            "& .MuiDrawer-paper": {
+              width: "7vw",
+            },
+          },
+          "@media (max-width: 576px)": {
+            // Further adjustments for even smaller screens
+            width: "7vw",
+            "& .MuiDrawer-paper": {
+              width: "7vw",
+            },
           },
         }}
         variant="permanent"

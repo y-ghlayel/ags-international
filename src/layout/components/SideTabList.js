@@ -26,13 +26,17 @@ export default function SideTabList() {
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
-        <ListItemButton sx={{ display: "flex", justifyContent: "center" }}>
+        <ListItemButton sx={{ display: "flex", justifyContent: "center"}}>
           <ListItemIcon>
             <Link to="/">
               <img
                 src="/images/logo.png"
                 alt="Logo"
-                style={{ width: "60px", height: "60px", color: "gray" }}
+                style={{
+                  width: "50px", 
+                  height: "50px", 
+                  color: "gray",
+                }}
               />
             </Link>
           </ListItemIcon>
