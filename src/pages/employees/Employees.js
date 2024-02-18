@@ -90,7 +90,7 @@ function Employees() {
             borderRadius: "15px",
             padding: "15px",
             boxSizing: "border-box",
-            margin: "0 auto",
+			margin: "5px auto 15px",
             overflowY: "auto",
           }}
         >
