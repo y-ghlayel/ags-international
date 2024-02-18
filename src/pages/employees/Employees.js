@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import EmployeesGrid from "./components/EmployeesGrid";
 import FiltersForms from "./components/FiltersForm";
 import { useState } from "react";
-import FormDialog from "./components/FormDialog";
+import AgsDialog from "./components/AgsDialog";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
@@ -71,7 +71,7 @@ function Employees() {
       </Dialog>
       {/* form dialog */}
       <div>
-        <FormDialog editingAccId={editingAccId} openDialog={openDialog}  handleClose={handleClose}  handleSubmitData={handleSubmitData}/>
+        <AgsDialog editingAccId={editingAccId} openDialog={openDialog}  handleClose={handleClose}  handleSubmitData={handleSubmitData}/>
       </div>
 
       <div

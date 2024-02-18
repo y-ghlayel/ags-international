@@ -22,7 +22,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     borderRadius: "22px",
   },
 }));
-export default function FormDialog({
+export default function AgsDialog({
   editingAccId,
   openDialog,
   handleClose,
